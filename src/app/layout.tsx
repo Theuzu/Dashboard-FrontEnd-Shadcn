@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+// Config do Shadcn
 import { cn } from '@/lib/utils'
+import { Sidebar } from "@/components/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* Configurando o Shadcn com ClassName */}
       <body className={cn("min-h-sscreen bg-background font-sans antialised",
         inter.className
-      )}>{children}</body>
+      )}>
+        {/* Passando os componentes que serao renderizados em todas as páginas */}
+        <Sidebar/>
+        {children}
+        </body>
     </html>
   );
 }
